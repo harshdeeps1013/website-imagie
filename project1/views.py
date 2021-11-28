@@ -76,7 +76,6 @@ def search(request):
             logger.info(pp.name)
             im.append(pp.image_id)
             kk.append(pp.likes)
-        logger.info(Document.objects.all())
         #logger.info(phot)
         lo1 = ["images/" + s for s in no]
         fi = zip(lo1, im,kk)

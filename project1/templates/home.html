@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'homepage.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+  <title>Homepage</title>
+
+
+  <style>
+    body {
+      margin: 0%;
+    }
+
+    .navbar {
+      overflow: hidden;
+      background-color: rgb(2, 0, 0);
+      padding: 0%;
+    }
+
+    * {
+      font-family: 'Quicksand';
+
+    }
+
+    .headf {
+      padding: 0%;
+
+    }
+
+    .navbar a,
+    p {
+      float: left;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: all 300ms ease-in-out
+    }
+
+    .dropdown {
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+      transition: all 300ms ease-in-out
+    }
+
+    .navbar a:hover,
+    p:hover,
+    .dropdown:hover .dropbtn {
+      background-color: #006B38FF;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      transition: all 300ms ease-in-out
+    }
+
+    .dropdown-content a,
+    p {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      transition: all 300ms ease-in-out
+    }
+
+    .dropdown-content a:hover,
+    p:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .headf {
+      display: inline-block;
+      width: 100%;
+      background-color: khaki;
+      margin: 0 0;
+      padding: 0%;
+
+    }
+
+    .headbuttons {
+      display: inline-block;
+    }
+
+    .commonp {
+      display: inline-block;
+      margin: 0;
+      margin-inline-end: 20%;
+    }
+
+    .searchbox {
+      background-color: #006B38FF;
+      margin: 0 0;
+      padding: 1%;
+
+    }
+
+    label {
+      margin: 0 1%;
+      font-size: large;
+
+    }
+
+    input {
+      align-self: center;
+      width: 50%;
+      height: 25px;
+      border-radius: 20px;
+      border: none;
+      border: 1px solid rgba(0, 0, 0, 0.822);
+      box-shadow: inset 0px 0px 40px 40p;
+      outline: none;
+      border-top-right-radius: unset;
+      border-bottom-right-radius: unset;
+      margin-right: 0;
+    }
+
+    .image_section {/*
+      line-height: 1;
+      -webkit-column-count: 5;
+      -webkit-column-gap: 0px;
+      -moz-column-count: 5;
+      -moz-column-gap: 0px;
+      column-count: 5;
+      column-gap: 5px;*/
+      width:100%;
+    }
+
+
+.parent {
+      position: relative;
+      width: 20%;
+    }
+
+
+    .image1 {
+      width: 100% !important;
+      height: auto !important;
+      transition: all 300ms ease-in-out;
+
+    }
+
+    .image1:hover {
+      transform: scale(1.06);
+    }
+
+
+    .white_box {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: 20px !important;
+      width: 20px !important;
+      transition: all 300ms ease-in-out;
+      border: none;
+      outline: none;
+      display: inline-flex;
+
+    }
+
+    .white_box:hover {
+      transform: scale(1.2);
+    }
+
+    .white {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      border: none;
+      height: 20px !important;
+      width: 20px !important;
+      transition: all 300ms ease-in-out;
+      border: none;
+      outline: none;
+    }
+
+    .white:hover {
+      transform: scale(1.2);
+    }
+
+
+    .by_box {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      transition: all 300ms ease-in-out;
+      border: none;
+      outline: none;
+      display: block;
+      font-size: 17px;
+      opacity: 0.8;
+
+    }
+
+
+
+    .sear{
+  width: 10%;
+  padding: 10px;
+  background: rgb(0, 0, 0);
+  color: white;
+  font-size: 17px;
+  border-left: none;
+  cursor: pointer;
+  height: 29.5px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 0;
+  border: none;
+  transition: all 300ms ease-in-out;
+    }
+
+
+    .sear:hover{
+      background: rgb(156, 197, 8);
+
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+  <header class="headf">
+
+    <div class="navbar">
+      <a href="{% url 'top_photos' %}">Top</a>
+      <a href="{% url 'image_upload' %}">Upload <i class="fa fa-cloud-upload"></i></a>
+      <a href="{% url 'home' %}">HOME</a>
+      <div class="dropdown">
+        {% if user.is_authenticated %}
+        <button class="dropbtn">
+          <i class="fa fa-user-circle-o" style="padding-right:5px ;"> </i>
+          {{  user}}
+        </button>
+        <div class="dropdown-content">
+          <p>{{user.email}}</p>
+          <a href="{% url 'logout' %}">Logout</a>
+        </div>
+        {% else %}
+        <a href="{% url 'login_request'%}">Login</a>
+        {% endif %}
+      </div>
+
+    </div>
+
+
+  </header>
+  <div class="searchbox">
+    <form action="{% url 'search' %}" style="background-color: transparent;">
+    <label style="font-weight: 700;">Search</label>
+
+    <input placeholder="    Search here.." name="search_d" id="search_d" required>
+    <button class="sear" type="submit"><i
+        class="fa fa-search"></i></button></form>
+  </div>
+  <main>
+
+
+
+
+    <div class="image_section " id="image_container">
+      <!---<div class="grid">-->
+      {% for i,y,l in fin %}
+      {% load static %}
+      <div class="parent">
+        <img src="{% static i %}" alt="" class="image1">
+
+        <div class="white_box">
+          <img src="{% static 'heart.png' %}" alt="" data-id="{{y}}" onclick="heart(this.dataset.id)">
+          <span style="margin-left:10px ;font-size: 15px;color:white ;opacity: 0.6;">{{l}}</span>
+        </div>
+
+        <input type="image" class="white" src="{% static 'heart_white.png' %}" id="{{ y}}" onclick="heart(this.id)"
+          style="display: block;">
+        <span class="by_box">by-</span>
+      </div>
+        {% endfor %}
+
+
+
+
+
+
+
+  </main>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="{% static 'masonry.pkgd.min.js' %}"></script>
+
+
+
+  <script>
+$(document).ready(function  () {
+    setTimeout(function(){
+    $('.image_section').masonry({
+    itemSelector: '.parent',
+    horizontalOrder: true,
+    });
+    }, 1500);
+
+  });
+
+      </script>
+
+
+<script>
+  function heart(clicke_id) {
+    var z = window.getComputedStyle(document.getElementById(clicke_id)).display;
+    var y = document.getElementById(clicke_id);
+
+    if (z === 'block') {
+      white_one(clicke_id, y);}
+
+    else if (z === 'none') {
+
+      console.log(window.getComputedStyle(document.getElementById(clicke_id)).display);
+
+      red_one(clicke_id, y);} }
+
+  function white_one(clicke_id, y) {
+    $.ajax({
+      url: "{% url 'like_v' %}",
+      type: "GET",
+      dataType: 'json',
+      data: {
+        'photo_id': clicke_id, 'ac': 'inc'
+      },
+      success: function (data) {
+        if (data.is_done) {
+          y.style.display = 'none';
+        }
+
+        else{
+          alert("PLease login to like")
+        }
+      }
+    });
+
+  }
+
+  function red_one(clicke_id, y) {
+    $.ajax({
+      url: "{% url 'like_v' %}",
+      type: "GET",
+      dataType: 'json',
+      data: {
+        'photo_id': clicke_id, 'ac': 'dec'
+      },
+      success: function (data) {
+        if (data.is_done) {
+          y.style.display = 'block';
+
+        }
+        else{
+          alert("PLease login to like")
+        }
+      }
+    });
+
+  }
+
+
+</script>
+ <script type="text/javascript">
+
+            </script>
+
+</html>

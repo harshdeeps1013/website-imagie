@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+          <style>
+      body {
+            background-image: url({% static 'bg1.jpg' %});
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-size:cover;
+            margin: 0%;
+            text-align:center;
+            margin:0;
+          }
+
+      button{
+        color: whitesmoke;
+            background-color: transparent;
+            font-family: Helvetica, sans-serif;
+            border: none;
+            background-color: #006B38FF;
+            border-radius: 15px;
+            height: 30px;
+            width: 100px;
+            font-size: 15px;
+            margin: 20px;
+      }
+      form{
+        width: fit-content;
+        padding: 8px;
+        height: fit-content;
+        margin: auto;
+        background-color: rgba(255, 255, 255, 0.582);
+      }
+      input{
+        width: 300px;
+        height: 30px;
+        border-radius: 10px;
+        margin: 20px;
+      }
+*{
+  font-family: 'Quicksand';
+
+
+
+    </style>
+</head>
+<body>
+{% block content %}
+
+  <form method="post"  action="{% url 'login_request' %}">
+    <h2 style="text-align: center;">Login</h2>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+    <br>
+    <a href="{% url 'signup'%}">register</a>
+  </form>
+{% endblock %}
+
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <p class="{{ message.tags }}" style="color: red; text-align: center;">{{ message }}</p>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+</body>
+</html>

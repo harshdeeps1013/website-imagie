@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <style>
+      body {
+            background-image: url( {% static 'bg1.jpg' %} );
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-size:cover;
+            margin: 0%;
+            }
+
+      button{
+        color: whitesmoke;
+            background-color: transparent;
+            font-family: Helvetica, sans-serif;
+            border: none;
+            background-color: #006B38FF;
+            border-radius: 15px;
+            height: 30px;
+            width: 100px;
+            font-size: 15px;
+      }
+      form{
+        width: fit-content;
+        padding: 8px;
+        height: fit-content;
+        margin: auto;
+      }
+      input{
+        width: 300px;
+        height: 15px;
+        border-radius: 10px;
+      }
+p{
+  font-family: 'Quicksand';
+}
+   signform_box
+{   display: none;
+    position: fixed;
+    top: 20%;
+    left:40%;
+    border: 3px solid #f1f1f1;
+
+}
+input{
+    width: 400px;
+    padding: 15px 5px;
+    margin: 5px 0px ;
+    border: none;
+    background: #f1f1f1;
+
+}
+.form
+{
+padding: 15px;
+background-color: white;
+
+}
+.form_button{
+    color:whitesmoke;
+    font-family: Helvetica, sans-serif;
+    border: 0.5px solid teal;
+    background-color: teal;
+    border-radius: 15px;
+    height: 30px;
+    width:100px;
+    margin: 10px;
+    padding: 1%;
+  }
+
+
+    </style>
+</head>
+<body>
+    <form class="form" action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+        <p style="text-align: center;">SIGNUP</p>
+        {% for field in form %}
+          <p>
+            {{ field.label_tag }}<br>
+            {{ field }}
+            {% if field.help_text %}
+            <small style="color: grey">{{ field.help_text }}</small>
+            {% endif %}
+            {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+          </p>
+        {% endfor %}
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+            <p class="{{ message.tags }}" style="color: red; text-align: center;">{{ message }}</p>
+          {% endfor %}
+        </ul>
+      {% endif %}
+        <input type="submit"  class="form_button">
+        </button>
+        <a href="{% url 'login_request'%}">ALREADY have an account</a>
+
+</form>
+
+</body>
+</html>

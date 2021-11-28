@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    {% load static %}
+    <!--<link rel="stylesheet" href="{% static 'project1/style.css' %}"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <style>
+
+
+        body {
+            background-image: url({% static 'bg1.jpg' %});
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-size:cover;
+            margin: 0%;
+
+        }
+
+        .box1 {
+            width: inherit;
+            height: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            height: fit-content;
+            text-align: center;
+            font-family: Courier, monospace;
+            padding: 2%;
+            color: whitesmoke;
+            font-size: 35px;
+            justify-content: space-around;
+
+
+        }
+
+        .but_login {
+            color: #006B38FF;
+            background-color: transparent;
+            font-family: Helvetica, sans-serif;
+            border: 2px solid #006B38FF;
+            border-radius: 15px;
+            height: 30px;
+            width: 100px;
+            font-size: 17px;
+
+            font-weight:bold;
+
+        }
+
+        .but_signup {
+            color: whitesmoke;
+            background-color: transparent;
+            font-family: Helvetica, sans-serif;
+            border: none;
+            background-color: #006B38FF;
+            border-radius: 15px;
+            height: 30px;
+            width: 100px;
+            font-size: 15px;
+
+
+        }
+
+
+        .buttonbox1 {
+            text-align: center;
+            width: fit-content;
+            justify-content: space-between;
+
+            padding-left: 1%;
+            padding-right: 1%;
+
+        }
+
+        main {
+
+            padding-top: 100px;
+            height: fit-content;
+            /* background-color: rgba(135, 207, 235, 0.678);  */
+
+        }
+
+        .logocontainer {
+
+            margin-left: auto;
+            margin-right: auto;
+            padding: 8px;
+            height: fit-content;
+            justify-content: center;
+            width: fit-content;
+             background-color: rgba(2, 0, 0, 0.253);
+            border: 2px solid #fff;
+
+
+
+        }
+        .logocontainer:hover{
+            background-color: rgba(2, 0, 0, 0.527);
+        }
+
+
+
+        h1 {
+            font-size: 100px;
+            font-family: "Quicksand";
+            text-align: center;
+            color: white;
+            margin: 0px;
+
+
+        }
+
+
+        .head_next {
+            font-size: 25px;
+            font-family: 'Quicksand';
+            color: white;
+            width: fit-content;
+            margin-top: 0px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .para_box {
+            display: flex;
+            height: fit-content;
+            background-color: transparent;
+            margin-top: 50px;
+            margin-bottom:50px;
+            justify-content: space-evenly
+        }
+
+        .info_para {
+            padding: 3%;
+            height: inherit;
+
+            font-size: 15px;
+            font-family: 'Quicksand';
+            color: white;
+            border-bottom: 2px solid #fff;
+        }
+
+        nav {
+            width: inherit;
+            height: fit-content;
+
+
+        }
+
+        .buttonbox {
+            padding: 2%;
+            display: flex;
+            justify-content: space-evenly;
+            background-color: rgb(38,54,64);
+
+        }
+
+        .but1 {
+            color: white;
+            background-color: transparent;
+            font-family: Helvetica, sans-serif;
+            border: 2px solid white;
+            border-radius: 15px;
+            height: 30px;
+            width: 100px;
+            font-size: 12px;
+
+        }
+
+        footer {
+            background-color: #006B38FF;
+            height: 50px;
+            margin: 0%;
+
+        }
+        header:hover{
+            background-color:  rgba(38, 54, 64, 0.555);
+        }
+
+        /* ///////////////////////////// */
+    </style>
+</head>
+
+<body>
+
+
+
+    <header>
+        Welcome
+
+        <div class="buttonbox1">
+            <a href="{% url 'login_request' %}"><button class="but_signup" >LOGIN</button></a>
+            <a href="{% url 'signup' %}"><button class="but_signup" >SIGNUP</button></a>
+
+        </div>
+    </header>
+
+    <div class="box1">
+
+        <main>
+
+            <div class="logocontainer">
+
+
+                <h1>imag!e.</h1>
+
+
+
+
+            <p class="head_next">
+
+            </p>
+        </div>
+            <div class="para_box">
+
+                <div class="info_para">
+                    A website containig the best images on the internet
+
+                </div>
+
+            </div>
+
+        </main>
+        <a href="{% url 'home'%}">Continue without login</a>
+    </div>
+    <nav>
+        <div class="buttonbox">
+            <button class="but1" onclick="aert()">CONTACT</button>
+            <button class="but1" onclick="aert()">SUPPORT US</button>
+        </div>
+    </nav>
+    <footer>
+
+    </footer>
+
+    <!--<script src="{% static 'project1/jsfile.js' %}">-->
+    </script>
+
+</body>
+
+</html>
